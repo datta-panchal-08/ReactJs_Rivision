@@ -1,0 +1,9 @@
+.titlegroup{
+    background-color: rgb(190, 188, 188);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 50px;
+    border-radius: 20px;
+    overflow: hidden;
+}
