@@ -1,0 +1,12 @@
+.product{
+    display: flex;
+    flex-direction: column;
+    border: 1px solid black;
+    width: 200px;
+    height: 200px;
+    align-items: center;
+    justify-content: center;
+    border-radius: 20px;
+    overflow: hidden;
+    
+}
