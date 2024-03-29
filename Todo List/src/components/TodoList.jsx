@@ -21,6 +21,15 @@ const TodoList = () => {
   const deleteTodo = (id) =>{
     setTodo(todo.filter((todo)=>todo.id != id));
   }
+  const upperCase = () => {
+    setTodo(  (prevTodos)=>
+      prevTodos.map((todo)=>{
+      return {
+        ...todo , 
+         task : todo.task.toUpperCase()
+      }
+    }))
+  }
   return (
     <div className="flex flex-col p-[4vw] absolute left-[50%] -translate-y-[50%] -translate-x-[50%] top-[50%] w-[50%] min-h-64 bg-zinc-500">
       <input value={inpVal}  onChange={updateTodoValue}
@@ -39,7 +48,9 @@ const TodoList = () => {
              <span> {todo.task} </span>
              <button onClick={()=>deleteTodo(todo.id)} className="px-4 py-1 rounded-md  bg-red-600 text-white font-bold">Delete</button>
               </li>
+
            })}
+           <button onClick={upperCase} className="px-8 py-1 text-center ml-[35%] bg-green-500 ">Upper Case All</button>
         </ul>
       </div>
     </div>
