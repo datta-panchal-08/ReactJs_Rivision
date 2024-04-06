@@ -1,15 +1,33 @@
 import React from 'react'
 import { useState } from 'react'
 const Form = () => {
-  const [fullName, setfullName] = useState("");
-  let handleNameChange = (event) =>{
-    console.log(event.target.value);
-    setfullName(event.target.value)
-  }
+ const [formdata,setFormdata] = useState({
+  fullname : "",
+  username : "",
+  password : ""
+ });
+ 
+ const submitHandler = (event) =>{
+     event.preventDefault();
+     setFormdata({
+      fullname : "",
+      username : "",
+      password : ""
+     })
+ }
+
+ const  inputChange = (event) =>{
+   setFormdata((currData)=>{
+     return {...currData,[event.target.name] : event.target.value}
+   });
+ }
+
   return (
     <div>
-        <form action="">
-            <input type="text" placeholder='Enter Your Name '  value={fullName} onChange={handleNameChange}/>
+        <form onSubmit={submitHandler}>
+            <input type="text" placeholder='Enter fullName '  value={formdata.fullname} onChange={inputChange} name='fullname' />
+            <input type="text" placeholder='Enter userName ' value={formdata.username} onChange={inputChange} name='username' />
+            <input type="password" placeholder='Enter password ' value={formdata.password} onChange={inputChange} name='password' />
             <button>Submit</button>
         </form>
     </div>
